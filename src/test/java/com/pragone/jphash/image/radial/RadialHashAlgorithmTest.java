@@ -17,10 +17,10 @@ public class RadialHashAlgorithmTest {
 
     private static final String EARTH1_HASH = "7cff4651003bc4a2b37a547a978b7b6e7a687c808d7c8688948983767f808c7d79727a7376757473";
     private static final String EARTH2_HASH = "a3ff195b0048ac9be693c3a394a1bcb7ab9bb5b4baababa8c0a4b19daa9eb2a7aba2aea7af97ada3";
-    private static final double EARTHS_DISTANCE = 0.7189180787765737d;
-    private static final double EARTH_RESIZED_DISTANCE = 0.9999806438624114d;
-    private static final double EARTH_CROPPED_DISTANCE = 0.8785204004702291d;
-    private static final double EARTH_CAPTION_DISTANCE = 0.9590921706328405d;
+    private static final double EARTHS_DISTANCE = 0.7920154308907376;
+    private static final double EARTH_RESIZED_DISTANCE = 0.9997152850886631;
+    private static final double EARTH_CROPPED_DISTANCE = 0.9659626495189001;
+    private static final double EARTH_CAPTION_DISTANCE = 0.9985071426552067;
 
     @Test
     public void testHashEarth1() throws IOException {

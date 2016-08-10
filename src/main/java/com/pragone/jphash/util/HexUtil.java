@@ -18,6 +18,14 @@ public class HexUtil {
         return sb.toString();
     }
 
+    public static String intArrayToString(int[] ints) {
+        StringBuilder sb = new StringBuilder();
+        for (int b : ints) {
+            sb.append(Integer.toHexString((b & 0xF0)>>4));
+            sb.append(Integer.toHexString(b&0xF));
+        }
+        return sb.toString();
+    }
     public static byte[] stringToByteArray(String string, byte[] destination) {
         if (destination == null) {
             destination = new byte[string.length()/2];
@@ -28,4 +36,15 @@ public class HexUtil {
         }
         return destination;
     }
+    
+    public static int[] stringToIntArray(String string, int[] destination) {
+        if (destination == null) {
+            destination = new int[string.length()/2];
+        }
+        int j = 0;
+        for (int i = 0; i < string.length(); i+=2) {
+            destination[j++] = Integer.valueOf(string.substring(i,i+2), 16).intValue();
+        }
+        return destination;
+    }    
 }

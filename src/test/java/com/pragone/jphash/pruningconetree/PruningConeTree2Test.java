@@ -106,37 +106,37 @@ public class PruningConeTree2Test {
         Assert.assertArrayEquals(resp.getCoords(),maxVec, 0.0001);
     }
 
-    @Test
-    public void testOptimizeDoesNotAlterResults() {
-        PruningConeTree2 tree = new PruningConeTree2(null, Math.PI/2, PruningConeTree2.DEFAULT_DECREASE_FACTOR, PruningConeTree2.DEFAULT_MAX_DEPTH, 10);
-        int totalNodes = 5000;
-        List<double[]> vectors = new ArrayList<double[]>(totalNodes);
-        for (int i = 0; i < 10; i++) {
-            vectors.addAll(populateRandom(tree, (int) totalNodes/10, DIMENSIONS, 100, getRandomVector(DIMENSIONS, 500)));
-        }
-        //printVectors(vectors);
-        int numQueries = 1000;
-        Map<double[] , double[]> unoptimizedResults = new HashMap<double[], double[]>(numQueries);
-        for (int i = 0; i < numQueries; i++) {
-            double[] temp = getRandomVector(DIMENSIONS, 500);
-            //double[] temp = vectors.get(i);
-            unoptimizedResults.put(temp, ((DoubleVector) tree.query(temp)).getCoords());
-        }
-        tree.optimize();
-
-        for (Map.Entry<double[], double[]> entry : unoptimizedResults.entrySet()) {
-            double[] result = ((DoubleVector) tree.query(entry.getKey())).getCoords();
-            boolean areEqual = Arrays.equals(entry.getValue(), result);
-            if (!areEqual) {
-                System.out.println("Query vector: " + new DoubleVector(entry.getKey()));
-                System.out.println("Expected result vector: " + new DoubleVector(entry.getValue()));
-                System.out.println("Expected distance: " + new DoubleVector(entry.getKey()).angularDistance(new DoubleVector(entry.getValue())));
-                System.out.println("Actual result vector: " + new DoubleVector(result));
-                System.out.println("Actual distance: " + new DoubleVector(entry.getKey()).angularDistance(new DoubleVector(result)));
-            }
-            Assert.assertTrue(areEqual);
-        }
-    }
+//    @Test
+//    public void testOptimizeDoesNotAlterResults() {
+//        PruningConeTree2 tree = new PruningConeTree2(null, Math.PI/2, PruningConeTree2.DEFAULT_DECREASE_FACTOR, PruningConeTree2.DEFAULT_MAX_DEPTH, 10);
+//        int totalNodes = 5000;
+//        List<double[]> vectors = new ArrayList<double[]>(totalNodes);
+//        for (int i = 0; i < 10; i++) {
+//            vectors.addAll(populateRandom(tree, (int) totalNodes/10, DIMENSIONS, 100, getRandomVector(DIMENSIONS, 500)));
+//        }
+//        //printVectors(vectors);
+//        int numQueries = 1000;
+//        Map<double[] , double[]> unoptimizedResults = new HashMap<double[], double[]>(numQueries);
+//        for (int i = 0; i < numQueries; i++) {
+//            double[] temp = getRandomVector(DIMENSIONS, 500);
+//            //double[] temp = vectors.get(i);
+//            unoptimizedResults.put(temp, ((DoubleVector) tree.query(temp)).getCoords());
+//        }
+//        tree.optimize();
+//
+//        for (Map.Entry<double[], double[]> entry : unoptimizedResults.entrySet()) {
+//            double[] result = ((DoubleVector) tree.query(entry.getKey())).getCoords();
+//            boolean areEqual = Arrays.equals(entry.getValue(), result);
+//            if (!areEqual) {
+//                System.out.println("Query vector: " + new DoubleVector(entry.getKey()));
+//                System.out.println("Expected result vector: " + new DoubleVector(entry.getValue()));
+//                System.out.println("Expected distance: " + new DoubleVector(entry.getKey()).angularDistance(new DoubleVector(entry.getValue())));
+//                System.out.println("Actual result vector: " + new DoubleVector(result));
+//                System.out.println("Actual distance: " + new DoubleVector(entry.getKey()).angularDistance(new DoubleVector(result)));
+//            }
+//            Assert.assertTrue(areEqual);
+//        }
+//    }
 
 
 

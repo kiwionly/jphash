@@ -64,7 +64,7 @@ public class RadialHashAlgorithm {
 
         double[] R = features.features;
 
-        byte[] D = digest.getCoefficients();
+        int[] D = digest.getCoefficients();
 
         double D_temp[] = new double[nb_coeffs];
         double max = 0.0;
@@ -87,7 +87,7 @@ public class RadialHashAlgorithm {
 
         for (int i=0;i<nb_coeffs;i++){
 
-            D[i] = (byte)(UCHAR_MAX*(D_temp[i] - min)/(max - min));
+            D[i] = (int)(UCHAR_MAX*(D_temp[i] - min)/(max - min));
 
         }
         return digest;
@@ -180,8 +180,8 @@ public class RadialHashAlgorithm {
 
         int N = hash1.getCoefficients().length;
 
-        byte[] x_coeffs = hash1.getCoefficients();
-        byte[] y_coeffs = hash2.getCoefficients();
+        int[] x_coeffs = hash1.getCoefficients();
+        int[] y_coeffs = hash2.getCoefficients();
 
         double r[] = new double[N];
         double sumx = 0.0;

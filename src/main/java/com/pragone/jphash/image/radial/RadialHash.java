@@ -3,29 +3,30 @@ package com.pragone.jphash.image.radial;
 import com.pragone.jphash.util.HexUtil;
 
 /**
- * User: pragone
- * Date: 25/04/2014
- * Time: 5:21 PM
+ * User: krishnact
+ * Date: 08/08/2016
+ * Time: 11:50 PM
  */
 public class RadialHash {
-    private final byte[] coefficients;
-
-    public RadialHash(int numberOfCoefficients) {
-        this.coefficients = new byte[numberOfCoefficients];
+    private final int[] coefficients;
+    public RadialHash(int numberOfcoefficients1) {
+        this.coefficients = new int[numberOfcoefficients1];
     }
 
-    public byte[] getCoefficients() {
+    public int[] getCoefficients() {
         return coefficients;
     }
 
     @Override
     public String toString() {
-        return HexUtil.byteArrayToString(coefficients);
+        return HexUtil.intArrayToString(coefficients);
     }
 
     public static RadialHash fromString(String string) {
         RadialHash temp = new RadialHash(string.length()/2);
-        HexUtil.stringToByteArray(string, temp.coefficients);
+        //HexUtil.stringToByteArray(string, temp.coefficients1);
+        HexUtil.stringToIntArray(string, temp.coefficients);
         return temp;
     }
+    
 }
