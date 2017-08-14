@@ -11,21 +11,22 @@ I've invested quite a bit in making this efficient. Some personal benchmarks hav
 # Licence
 I still need to add all the licencing info, but the idea is that it be LGPL so it can be included in other distributed work. I'm still checking, but I believe this is compatible with the GPL version that pHash is on.
 
+
+# Build
+>gradlew radial 
+
+
 # Usage
 Simple:
 ```
-RadialHash hash1 = jpHash.getImageRadialHash("/path/to/image");
+RadialHash hash1 = JpHash.getImageRadialHash("/path/to/image");
 System.out.println("Hash1: " + hash1);
-RadialHash hash2 = jpHash.getImageRadialHash("/path/to/other/image");
+RadialHash hash2 = JpHash.getImageRadialHash("/path/to/other/image");
 System.out.println("Hash2: " + hash2);
 
 System.out.println("Similarity: " + jpHash.getSimilarity(hash1, hash2));
 
 ```
-
-# Build
->gradlew radial 
-
 
 You can also persist the string representation of the hash and recover it with: RadialHash.fromString(String)
 
