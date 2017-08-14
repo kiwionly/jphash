@@ -14,14 +14,18 @@ I still need to add all the licencing info, but the idea is that it be LGPL so i
 # Usage
 Simple:
 ```
-RadialImageHash hash1 = jpHash.getImageRadialHash("/path/to/image");
+RadialHash hash1 = jpHash.getImageRadialHash("/path/to/image");
 System.out.println("Hash1: " + hash1);
-RadialImageHash hash2 = jpHash.getImageRadialHash("/path/to/other/image");
+RadialHash hash2 = jpHash.getImageRadialHash("/path/to/other/image");
 System.out.println("Hash2: " + hash2);
 
 System.out.println("Similarity: " + jpHash.getSimilarity(hash1, hash2));
 
 ```
+
+# Build
+>gradlew radial 
+
 
 You can also persist the string representation of the hash and recover it with: RadialHash.fromString(String)
 

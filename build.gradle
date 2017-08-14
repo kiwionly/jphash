@@ -1,0 +1,22 @@
+
+apply plugin: 'java'
+
+repositories { 
+    mavenCentral()
+}
+
+dependencies {          
+    compile 'junit:junit:+'
+}
+
+task radial(type: Jar) {
+    
+    baseName = 'JpHash'
+	
+    from sourceSets.main.output
+    
+    include 'com/pragone/jphash/*.*'
+    include 'com/pragone/jphash/image/*.*'
+    include 'com/pragone/jphash/image/radial/*.*'
+    include 'com/pragone/jphash/util/*.*'      
+}
