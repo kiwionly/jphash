@@ -9,9 +9,19 @@ public class RadialHash
 {
 	private final int[] coefficients;
 
-	public RadialHash(int numberOfcoefficients1)
+	public RadialHash(int size)
 	{
-		this.coefficients = new int[numberOfcoefficients1];
+		this.coefficients = new int[size];
+	}
+	
+	public RadialHash(int[] coefficients)
+	{
+		this.coefficients = coefficients;
+	}
+	
+	public RadialHash(String hash)
+	{
+		this.coefficients = HexUtil.stringToIntArray(hash);
 	}
 
 	public int[] getCoefficients()
@@ -23,14 +33,6 @@ public class RadialHash
 	public String toString()
 	{
 		return HexUtil.intArrayToString(coefficients);
-	}
-
-	public static RadialHash fromString(String string)
-	{
-		RadialHash temp = new RadialHash(string.length() / 2);
-		// HexUtil.stringToByteArray(string, temp.coefficients1);
-		HexUtil.stringToIntArray(string, temp.coefficients);
-		return temp;
 	}
 
 }

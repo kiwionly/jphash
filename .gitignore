@@ -29,3 +29,4 @@ work
 *.mtc1
 *.out
 *.synctex.gz
+/bin/
